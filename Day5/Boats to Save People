@@ -1,0 +1,22 @@
+class Solution {
+    public int numRescueBoats(int[] p, int l) {
+        Arrays.sort(p);
+        int lo=0;
+        int n=p.length;
+        int c=0;
+        int h=n-1;
+        while(lo<=h){
+            int s=p[lo]+p[h];
+            if(s<=l){
+                lo++;
+                h--;
+                c++;
+            }
+            else{
+                h--;
+                c++;
+            }
+        }
+        return c;
+    }
+}
