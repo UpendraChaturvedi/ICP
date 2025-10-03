@@ -1,0 +1,18 @@
+class Solution {
+    public List<List<Integer>> combine(int n, int k) {
+        List<List<Integer>> res = new ArrayList<>();
+        combi(1,n,k,new ArrayList<>(), res);
+        return res;
+    }
+    public static void combi(int st,int n,int k,List<Integer> l,List<List<Integer>> res){
+        if(l.size()==k){
+            res.add(new ArrayList<>(l));
+            return ;
+        }
+        for(int i=st;i<=n;i++){
+            l.add(i);
+            combi(i+1,n,k,l,res);
+            l.remove(l.size()-1);
+        }
+    }
+}
